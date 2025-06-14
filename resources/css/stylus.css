@@ -1,0 +1,151 @@
+.btn {
+    @apply font-bold py-2 px-4 rounded;
+  }
+  .btn-blue {
+    @apply bg-blue-500 text-white hover:bg-blue-700;
+  }
+
+  .btn-indigo {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700;
+  }
+
+  .btn-green {
+    @apply bg-green-500 text-white hover:bg-green-700;
+  }
+
+  .btn-purple {
+    @apply bg-purple-700 text-white hover:bg-purple-700;
+  }
+
+  .btn-cyan {
+    @apply bg-cyan-600 text-white hover:bg-cyan-700;
+  }
+
+  .btn-red {
+    @apply bg-red-800 text-white hover:bg-red-700;
+  }
+
+    .form-control {
+    @apply border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm
+  }
+
+.container {
+    @apply max-w-7xl mx-auto m-5 p-5
+}
+
+/*Boton de ir arriba*/
+
+#button-up{
+    width: 60px;
+    height: 60px;
+    background: rgb(192, 8, 17);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    cursor: pointer;
+    border: 4px solid transparent;
+    transition: all 300ms ease;
+    transform: scale(0);
+    z-index:1;
+}
+
+#button-up:hover{
+    transform: scale(1.1);
+    border-color: rgba(0,0,0,0.1);
+}
+
+.heightPdf{
+    height: 650px;
+}
+
+.centrado{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid-container {
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    justify-content: center;
+}
+
+/**Card responsivas**/
+.card-cs {
+    /* Add shadows to create the "card" effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 0.3em;
+    overflow: hidden;
+}
+.card-cs:hover {
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2);
+}
+.card-cs-body {
+    display: grid;
+    padding: 0.2em 1em;
+    overflow: hidden;
+}
+.card-cs-img {
+    border-radius: 0.3em 0.3em 0 0;
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+}
+.card-cs-title {
+    text-align: center;
+    font-size: clamp(1.5em, 1.2vw, 3em);
+    font-weight: 800;
+    padding-bottom: 0.5em;
+}
+.card-cs-subtitle {
+    font-size: clamp(1em, 1vw, 2em);
+    text-justify: auto;
+    padding-bottom: 0.5em;
+}
+.card-cs-footer {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    margin-bottom: 1.5em;
+}
+
+.loader {
+    z-index: 99999;
+    position: absolute;
+    margin: auto;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top-color: #3498db;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.text-xxs {
+    font-size: 0.66rem;
+}
