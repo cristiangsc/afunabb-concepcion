@@ -149,3 +149,12 @@
 .text-xxs {
     font-size: 0.66rem;
 }
+
+.ck-editor__editable_inline {
+    min-height: 500px;
+}
+
+.ck-editor__editable {
+    min-height: 500px !important; /* Puedes ajustar el valor */
+}
+

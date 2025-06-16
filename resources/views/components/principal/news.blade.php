@@ -1,9 +1,9 @@
 <div>
     @if(!empty($noticias))
-        <div class="bg-indigo-800  flex items-center justify-center  py-2">
+        <div class="bg-green-800  flex items-center justify-center  py-2">
             <a href="{{ route('noticias') }}"><h2
                     class="xl:text-2xl md:text-xl sm:text-lg font-extrabold leading-7 text-white px-2 py-2 hover:!text-gray-300">
-                    NOTICIAS DE ACTUALIDAD AFUNABB CHILLÁN</h2></a>
+                    NOTICIAS DE ACTUALIDAD AFUNABB CONCEPCIÓN</h2></a>
         </div>
         <div
             class="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">

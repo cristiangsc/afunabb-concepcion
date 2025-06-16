@@ -13,7 +13,7 @@ class Show extends Component
     public function render():Renderable
     {
         can('noticias read');
-        $noticias = Noticia::with('media')->orderBy('created_at','DESC')->take(5)->get();
+        $noticias = Noticia::with('media')->orderBy('created_at','DESC')->take(8)->get();
         $noticia = Noticia::with('media','user')->find($this->id);
         return view('livewire.noticias.show',compact('noticia','noticias'));
     }

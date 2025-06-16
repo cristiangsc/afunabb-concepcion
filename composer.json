@@ -7,6 +7,8 @@
     "require": {
         "php": "^8.3",
         "barryvdh/laravel-dompdf": "^3.1",
+        "blade-ui-kit/blade-heroicons": "^2.6",
+        "blade-ui-kit/blade-icons": "^1.8",
         "freshwork/chilean-bundle": "^2.1",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^3.5",
@@ -17,6 +19,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "maatwebsite/excel": "*",
+        "rappasoft/laravel-livewire-tables": "^3.7",
         "realrashid/sweet-alert": "^7.1",
         "spatie/laravel-medialibrary": "*",
         "spatie/laravel-permission": "^6.1"

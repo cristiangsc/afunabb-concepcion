@@ -2,7 +2,7 @@
     <x-dialog-modal wire:model="showModal" :maxWidth="'6xl'">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"> {{$titleForm}}
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> {{$titleForm}}
             </div>
         </x-slot>
 
@@ -27,8 +27,7 @@
                     </div>
 
                     <div class="col-span-full">
-                        <label for="cover-photo"
-                               class="block text-sm font-medium leading-6 text-gray-900">Imagen</label>
+                        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Imagen</label>
 
                         <div wire:loading wire:target="image"
                              class="block text-md text-white bg-red-400 border border-red-400 h-12 items-center p-4 rounded-md relative mb-5"
@@ -86,15 +85,29 @@
 
     </x-dialog-modal>
 
+
+
     @push('scripts')
 
         <script>
 
             let editor2;
+
+            function aplicarAlturaEditor() {
+                setTimeout(() => {
+                    const editable = editor2?.ui?.getEditableElement?.();
+                    if (editable) {
+                        editable.style.minHeight = '500px';
+                        editable.style.maxHeight = 'none';
+                    }
+                }, 100); // esperar a que esté visible
+            }
+
                 ClassicEditor
                     .create(document.querySelector('#editor'))
                     .then(function (editor) {
                          editor2 = editor
+                        aplicarAlturaEditor();
                         editor.model.document.on('change:data', () => {
                         @this.set('body', editor.getData())
                         })
@@ -106,6 +119,7 @@
 
                 document.addEventListener('livewire:initialized', () => {
                     @this.on('nuevo_editor', (event) => {
+                        aplicarAlturaEditor();
                         editor2.setData('')
                     });
                 });
@@ -115,8 +129,6 @@
                     editor2.setData(...body)
                 });
             });
-
-
 
         </script>
 

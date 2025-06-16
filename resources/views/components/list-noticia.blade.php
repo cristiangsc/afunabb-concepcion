@@ -1,7 +1,7 @@
 <div>
 
     <div class="grid grid-cols-3 gap-4 overflow-hidden shadow-lg bg-white py-2">
-        <div class="font-bold text-2xl col-span-3 justify-self-center text-orange-600">NOTICIAS RECIENTES
+        <div class="font-bold text-2xl col-span-3 justify-self-center text-red-600">NOTICIAS RECIENTES
             <hr>
         </div>
 
