@@ -14,7 +14,7 @@
         <form class="rounded overflow-hidden shadow-lg px-6 py-6 mt-4 bg-white">
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
-                    <div class="bg-indigo-800  flex items-center justify-center  py-2">
+                    <div class="bg-green-800  flex items-center justify-center  py-2">
                         <h2 class="xl:text-xl md:text-lg sm:text-md font-semibold leading-7 text-white px-2 py-2">{{$galleryName->title}}</h2>
                     </div>
 
@@ -34,7 +34,7 @@
                                               wire:confirm="¿Desea eliminar esta imagen?"
                                               wire:stop
                                               class="mt-2 bg-red-600 hover:bg-red-800">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <x-heroicon-o-trash class="h-4 w-4 text-white"/>
                                     </x-button>
                                 </div>
                                 @endcan
@@ -59,12 +59,12 @@
     <x-dialog-modal wire:model="showModal" :maxWidth="'6xl'">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-sm text-center border-b rounded-t-lg">
+            <div class="bg-green-800 text-white text-sm text-center border-b rounded-t-lg">
                 Imagen: {{$galleryName->title}} </div>
         </x-slot>
 
         <x-slot name="content">
-            <img src="{{$url}}" class="h-full w-full object-cover object-center lg:h-full lg:w-full"/>
+            <img src="{{$url}}" class="h-full w-full object-cover object-center lg:h-full lg:w-full" alt=""/>
         </x-slot>
         <x-slot name="footer">
             <x-button-cancel wire:click="$set('showModal',false)">

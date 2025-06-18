@@ -1,7 +1,7 @@
 <div class="pt-6">
 
     @if(!empty($galleries))
-        <div class="bg-indigo-800  flex items-center justify-center py-2">
+        <div class="bg-green-800  flex items-center justify-center py-2">
             <a href="{{ route('galeria') }}"><h2
                     class="xl:text-2xl md:text-xl sm:text-lg font-extrabold leading-7 text-white px-2 py-2 hover:!text-gray-300">
                     IMÁGENES DESTACADAS</h2></a>

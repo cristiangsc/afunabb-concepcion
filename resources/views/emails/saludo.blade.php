@@ -43,7 +43,7 @@
                     <tr>
                         <td style="padding:30px;background-color:#ffffff;">
                             <h1 style="margin-top:0;margin-bottom:5px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em; text-align:center; color:#060479; ">La Asociación de Funcionarios no Académicos</h1>
-                            <h1 style="margin-top:0;margin-bottom:5px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em; text-align:center; color:#060479; ">AFUNABB CHILLÁN</h1>
+                            <h1 style="margin-top:0;margin-bottom:5px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em; text-align:center; color:#060479; ">AFUNABB CONCEPCIÓN</h1>
                         </td>
                     </tr>
 
@@ -65,7 +65,7 @@
                     <tr>
 
                         <td style="padding:30px;background-color:#ffffff;">
-                            <a href="http://www.afunabb.cl/" style="text-decoration:none;"> <img src="{{ asset('assets/images/logo.png') }}" width="240" alt="Logo"></a>
+                            <a href="http://www.afunabbconcepcion.cl/" style="text-decoration:none;"> <img src="{{ asset('assets/images/logo.png') }}" width="240" alt="Logo"></a>
                         </td>
 
                     </tr>

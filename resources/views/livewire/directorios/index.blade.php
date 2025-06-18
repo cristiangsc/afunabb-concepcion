@@ -55,7 +55,7 @@
                         <button wire:click="OpenModalDirectorioCreate()"
                                 type="button"
                                 class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-neutral-50">
-                            <svg class="h-7 w-7 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            <svg class="h-7 w-7 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"/>
@@ -132,7 +132,7 @@
     <x-dialog-modal wire:model="showModal">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"> {{$title}} </div>
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> {{$title}} </div>
         </x-slot>
 
         <x-slot name="content">

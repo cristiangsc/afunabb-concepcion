@@ -48,7 +48,7 @@
                         <a class="hover:opacity-75" href="{{ route('galeria') }}"> Galería de Imágenes </a>
                         <a class="hover:opacity-75" href="{{ route('actas') }}"> Actas </a>
                         <a class="hover:opacity-75" href="{{ route('documentos') }}"> Documentos </a>
-                        <a class="hover:opacity-75" href="{{ route('cafeteria.ingresos.grafico') }}"> Finanzas </a>
+
 
                     </nav>
                 </div>
@@ -66,7 +66,7 @@
                     </p>
                     <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-200">
                         <a class="hover:opacity-75" href="https://www.ubiobio.cl/" target="_blank">Universidad del Bío-Bío </a>
-                        <a class="hover:opacity-75" href="https://www.dt.gob.cl/portal/1626/w3-channel.html" target="_blank">Dirección del Trabajo Chillán</a>
+                        <a class="hover:opacity-75" href="https://www.dt.gob.cl/portal/1626/w3-channel.html" target="_blank">Dirección del Trabajo</a>
                         <a class="hover:opacity-75" href="https://anef.cl/" target="_blank">ANEF</a>
                         <a class="hover:opacity-75" href="https://www.antue.cl/" target="_blank">ANTUE</a>
                     </nav>

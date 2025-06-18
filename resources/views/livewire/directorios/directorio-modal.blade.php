@@ -1,20 +1,20 @@
 <div>
-    
+
      <a href="#" wire:click="$set('open','true')" class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100">
         <img src="{{ asset('assets/images/logoB.png') }}" class="w-8 h-8 me-3" alt="Logo Afunabb">
-        <span class="w-full">DIRECTORIO AFUNABB CHILLÁN</span>
+        <span class="w-full">DIRECTORIO AFUNABB CONCEPCIÓN</span>
         <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
         </svg>
     </a>
-    
+
 
     <x-dialog-modal wire:model="open" maxWidth="4xl">
 
         <x-slot name="title">
             <div class="mb-10 text-center">
-                <h2 class="mb-4 text-center text-2xl text-orange-500 font-bold md:text-4xl uppercase">Directorio Afunabb Chillán </h2>
-                <p class="text-blue-950 lg:w-8/12 lg:mx-auto">Universidad del Bío-Bío</p>
+                <h2 class="mb-4 text-center text-2xl text-green-800 font-bold md:text-4xl uppercase">Directorio Afunabb Concepción </h2>
+                <p class="text-gray-800 lg:w-8/12 lg:mx-auto">Universidad del Bío-Bío</p>
             </div>
         </x-slot>
 
@@ -43,7 +43,7 @@
                             </div>
                         @endforeach
                         <div class="space-y-4">
-                            <img class="mx-auto md:w-48 md:h-48 lg:w-48 lg:h-48"
+                            <img class="mx-auto md:w-32 md:h-32 lg:w-32 lg:h-32"
                                  src="{{asset('assets/images/logo.png')}}" alt="logo"/>
                         </div>
                     </div>

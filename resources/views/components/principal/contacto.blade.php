@@ -4,7 +4,7 @@
             <div class="grid items-center gap-12 lg:grid-cols-2">
                 <div class="mt-12 lg:mt-0">
                     <h1 class="mb-12 text-5xl font-bold leading-tight tracking-tight">
-                        Contáctanos <br/><span class="text-indigo-700">Hablemos de todo</span>
+                        Contáctanos <br/><span class="text-green-700">Hablemos de todo</span>
                     </h1>
                     <p class="text-neutral-600">
                         ¿Tienes alguna consulta?, sugerencias o felicitaciones,

@@ -34,10 +34,6 @@
     <main>
         {{ $slot }}
 
-        <div id="button-up">
-            <i class="fa fa-chevron-up"></i>
-        </div>
-
     </main>
 </div>
 

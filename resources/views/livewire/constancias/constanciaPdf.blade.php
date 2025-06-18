@@ -56,7 +56,7 @@
 </div>
 
 <br>
-<p>El DIRECTORIO de la Asociación de Funcionarios no Académicos de la Universidad del Bío-Bío Chillán,
+<p>El DIRECTORIO de la Asociación de Funcionarios no Académicos de la Universidad del Bío-Bío Concepción,
     deja constancia que el socio/a antes individualizado/a participó en: <b>{{ $constancia->descripcion }}.</b></p>
 <br>
 <br>
@@ -68,12 +68,12 @@
 <div class="text-center text-uppercase pie">
     <p>{{ $presidente->user->fullName }}</p>
     <p class="pt">Rut: {{ rutFormat($presidente->user->rut) }} </p>
-    <p>Presidente(a) AFUNABB CHILLÁN</p>
+    <p>Presidente(a) AFUNABB CONCEPCIÓN</p>
 </div>
 
 
 <footer>
-    <h2>www.afunabb.cl</h2>
+    <h2>www.afunabbconcepcion.cl</h2>
 </footer>
 </body>
 </html>

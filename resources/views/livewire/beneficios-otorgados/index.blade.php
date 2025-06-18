@@ -139,7 +139,7 @@
 
     <x-dialog-modal wire:model="showModalDescripcion" :maxWidth="'sm'">
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"></div>
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"></div>
         </x-slot>
         <x-slot name="content">
             <p>{{$observacion}}</p>
@@ -155,7 +155,7 @@
     <x-dialog-modal wire:model="showModal">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"> {{$title}} </div>
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> {{$title}} </div>
         </x-slot>
 
         <x-slot name="content">

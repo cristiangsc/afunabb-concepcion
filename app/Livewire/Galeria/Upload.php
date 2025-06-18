@@ -14,7 +14,7 @@ class Upload extends Component
 
     public Gallery $gallery;
 
-    public $image;
+    public array $images = [];
 
     public function mount(Gallery $id):void
     {
@@ -24,15 +24,25 @@ class Upload extends Component
     public function store(): void
     {
         $this->validate([
-            'image'=> 'required|max:3048|image|mimes:jpg,jpeg,bmp,png'
+            'images'   => 'required|array',
+            'images.*' => 'image|max:4048|mimes:jpg,jpeg,bmp,png'
         ]);
 
         $gallery = Gallery::find($this->gallery->id);
-        $gallery->addMedia($this->image)
-        ->toMediaCollection('galleries');
+
+        foreach ($this->images as $image) {
+            $gallery->addMedia($image)
+                ->toMediaCollection('galleries');
+        }
 
         $this->alert('success', 'Imagen almacenada exitosamente', ['position' => 'bottom-center']);
-        $this->reset('image');
+        $this->reset('images');
+    }
+
+    public function removeImage($index): void
+    {
+        unset($this->images[$index]);
+        $this->images = array_values($this->images); // Reindexar el array
     }
 
     public function render(): Renderable

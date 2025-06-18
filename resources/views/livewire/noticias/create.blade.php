@@ -57,7 +57,7 @@
                                 </svg>
                                 <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                                     <label for="image"
-                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-green-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                         <span>Upload a file</span>
                                         <input id="image" name="image" wire:model="image" type="file" class="sr-only">
                                     </label>

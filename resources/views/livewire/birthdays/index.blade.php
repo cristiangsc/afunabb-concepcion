@@ -12,7 +12,7 @@
                 <form class="rounded overflow-hidden shadow-lg px-6 py-6 mt-4 bg-white">
                     <div class="space-y-12">
                         <div class="border-b border-gray-900/10 pb-12">
-                            <div class="bg-indigo-800  flex items-center justify-center  py-2">
+                            <div class="bg-green-800  flex items-center justify-center  py-2">
                                 <h2 class="text-base font-semibold leading-7 text-white px-2 py-2">SALUDO DE
                                     CUMPLEAÑOS</h2>
                                 @can('cumpleaños create')
@@ -20,7 +20,7 @@
                                         wire:click="OpenModalSaludo()"
                                         type="button"
                                         class="inline-flex rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-neutral-50">
-                                        <svg class="h-7 w-7 text-indigo-600" xmlns="http://www.w3.org/2000/svg"
+                                        <svg class="h-7 w-7 text-green-600" xmlns="http://www.w3.org/2000/svg"
                                              fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -70,7 +70,7 @@
     <x-dialog-modal wire:model="showModal" :maxWidth="'6xl'">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"> {{$titleForm}}
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> {{$titleForm}}
             </div>
         </x-slot>
 
@@ -113,7 +113,7 @@
                                 </svg>
                                 <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                                     <label for="imagen"
-                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-green-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                         <span>Upload a file</span>
                                         <input id="imagen" name="imagen" wire:model="imagen" type="file"
                                                class="sr-only">

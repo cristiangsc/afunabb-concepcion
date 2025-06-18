@@ -18,7 +18,7 @@ class Index extends Component
     public string $titleModal = '';
     public string $buttonGallery = '';
     public Gallery $gallery;
-    public string $sort = 'title';
+    public string $sort = 'created_at';
     public string $direction = 'asc';
     protected $listeners = ['confirmed'];
     public string $search='';

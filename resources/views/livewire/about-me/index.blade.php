@@ -68,8 +68,7 @@
     <x-dialog-modal wire:model="showModal" :maxWidth="'6xl'">
 
         <x-slot name="title">
-            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> EDITAR ANTECEDENTES AFUNABB
-            </div>
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> EDITAR ANTECEDENTES AFUNABB</div>
         </x-slot>
 
         <x-slot name="content">

@@ -61,45 +61,6 @@
                                     </x-dropdown-link>
                                 @endif
 
-                                @if(canView('ingresos'))
-                                    <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Otros') }}</div>
-                                    <x-dropdown-link href="{{ route('ingresos.varios') }}">
-                                        {{ __('Otros Ingresos') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                @if(canView('egresos'))
-                                    <x-dropdown-link href="{{ route('egresos.varios') }}">
-                                        {{ __('Otros Egresos') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                @if(canView('inversiones'))
-                                    <x-dropdown-link href="{{ route('inversiones') }}">
-                                        {{ __('Inversiones') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Cafetería') }}</div>
-
-                                @if(canView('ingresosCafeteria'))
-                                    <x-dropdown-link href="{{ route('cafeteria.ingresos') }}">
-                                        {{ __('Ingresos') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                @if(canView('egresosCafeteria'))
-                                    <x-dropdown-link href="{{ route('cafeteria.egresos') }}">
-                                        {{ __('Egresos') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                @if(canView('graficos'))
-                                    <x-dropdown-link href="{{ route('cafeteria.ingresos.grafico') }}">
-                                        {{ __('Gráficos') }}
-                                    </x-dropdown-link>
-                                @endif
-
                             </x-slot>
 
                         </x-dropdown>
@@ -199,23 +160,8 @@
                                         </x-dropdown-link>
                                     @endif
 
-                                    <div class="border-t border-gray-200"></div>
 
                                     <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Contabilidad') }}</div>
-
-                                    @if(canView('egresosTipos'))
-                                        <x-dropdown-link href="{{ route('egresos') }}">
-                                            {{ __('Tipos de Egresos') }}
-                                        </x-dropdown-link>
-                                    @endif
-
-                                    @if(canView('ingresosTipos'))
-                                        <x-dropdown-link href="{{ route('ingresos') }}">
-                                            {{ __('Tipos de Ingresos') }}
-                                        </x-dropdown-link>
-                                    @endif
-
-                                    <div class="border-t border-gray-200"></div>
 
                                     <div
                                         class="block px-4 py-2 text-xs text-gray-400">{{ __('Otras Configuraciones') }}</div>
@@ -418,35 +364,6 @@
                     {{ __('Aporte Socios') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link href="{{ route('ingresos.varios') }}"
-                                       :active="request()->routeIs('ingresos.varios')">
-                    {{ __('Otros Ingresos') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('egresos.varios') }}"
-                                       :active="request()->routeIs('egresos.varios')">
-                    {{ __('Otros Egresos') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('inversiones') }}" :active="request()->routeIs('inversiones')">
-                    {{ __('Inversiones') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('cafeteria.ingresos') }}"
-                                       :active="request()->routeIs('cafeteria.ingresos')">
-                    {{ __('Ingresos') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('cafeteria.egresos') }}"
-                                       :active="request()->routeIs('cafeteria.egresos')">
-                    {{ __('Egresos') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('cafeteria.ingresos.grafico') }}"
-                                       :active="request()->routeIs('cafeteria.ingresos.grafico')">
-                    {{ __('Gráficos') }}
-                </x-responsive-nav-link>
-
             </div>
         </div>
 
@@ -503,18 +420,6 @@
                         <x-responsive-nav-link href="{{ route('reparticiones') }}"
                                                :active="request()->routeIs('reparticiones')">
                             {{ __('Reparticiones') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('egresosTipos'))
-                        <x-responsive-nav-link href="{{ route('egresos') }}" :active="request()->routeIs('egresos')">
-                            {{ __('Tipos de Egresos') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('ingresosTipos'))
-                        <x-responsive-nav-link href="{{ route('ingresos') }}" :active="request()->routeIs('ingresos')">
-                            {{ __('Tipos de Ingresos') }}
                         </x-responsive-nav-link>
                     @endif
 

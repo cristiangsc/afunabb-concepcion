@@ -83,7 +83,7 @@
                                         @endcan
                                         @can('noticias update')
                                             <x-button type="button" wire:click="OpenModal({{$noticia->id}})"
-                                                      class="m-2 bg-indigo-950 hover:bg-indigo-800">
+                                                      class="m-2 bg-green-950 hover:bg-green-800">
                                                 <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
                                             </x-button>
                                         @endcan

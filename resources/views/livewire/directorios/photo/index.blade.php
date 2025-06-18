@@ -12,7 +12,7 @@
                 <form class="rounded overflow-hidden shadow-lg px-6 py-6 mt-4 bg-white">
                     <div class="space-y-12">
                         <div class="border-b border-gray-900/10 pb-12">
-                            <div class="bg-indigo-800  flex items-center justify-center  py-2">
+                            <div class="bg-green-800  flex items-center justify-center  py-2">
                                 <h2 class="text-base font-semibold leading-7 text-white px-2 py-2">FOTOGRAFÍA DIRECTIVA</h2>
                                 <button
                                     wire:click="OpenModalPhoto()"
@@ -43,7 +43,7 @@
                                                 <i class="fa-regular fa-trash-can"></i>
                                             </x-button>
                                             <x-button type="button" wire:click="OpenModalPhoto({{$photo->id}})"
-                                                      class="m-2 bg-indigo-950 hover:bg-indigo-800">
+                                                      class="m-2 bg-green-950 hover:bg-green-800">
                                                 <i class="fa-regular fa-edit"></i>
                                             </x-button>
                                         </div>
@@ -61,7 +61,7 @@
     <x-dialog-modal wire:model="showModal" :maxWidth="'6xl'">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"> {{$titleForm}}
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"> {{$titleForm}}
             </div>
         </x-slot>
 
@@ -99,7 +99,7 @@
                                 </svg>
                                 <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                                     <label for="imagen"
-                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-green-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                         <span>Upload a file</span>
                                         <input id="imagen" name="imagen" wire:model="imagen" type="file" class="sr-only">
                                     </label>
