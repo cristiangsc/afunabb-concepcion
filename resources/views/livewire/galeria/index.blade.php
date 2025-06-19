@@ -71,20 +71,29 @@
                     </td>
                     <td class="text-center pr-2 whitespace-nowrap border-dashed border-t border-gray-200">
                         @can('galeria read')
-                            <a href="{{route('show',$gallery->id)}}"
-                               class="bg-yellow-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Ver</a>
+                        <x-button type="button" onclick="window.location.href='{{ route('show',$gallery->id) }}'"
+                                  class="m-2 bg-yellow-500 hover:bg-yellow-700">
+                            <x-heroicon-o-eye class="h-4 w-4 text-white"/>
+                        </x-button>
                         @endcan
                         @can('galeria update')
-                            <span wire:click="OpenModalGalleryCreate({{ $gallery->id }})"
-                                  class="bg-green-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Editar</span>
+                            <x-button type="button" wire:click="OpenModalGalleryCreate({{ $gallery->id }})"
+                                      class="m-2 bg-green-600 hover:bg-green-800">
+                                <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
+                            </x-button>
                         @endcan
                         @can('galeria create')
-                            <a href="{{route('upload',$gallery->id)}}"
-                               class="bg-blue-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Agregar</a>
+                                <x-button type="button" onclick="window.location.href='{{ route('upload',$gallery->id) }}'"
+                                          class="m-2 bg-blue-600 hover:bg-blue-800">
+                                    <x-heroicon-s-arrow-up-circle class="h-4 w-4 text-white" />
+                                </x-button>
                         @endcan
                         @can('galeria delete')
-                            <span wire:click="deleteGallery({{$gallery->id}})"
-                                  class="bg-red-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Eliminar</span>
+                            <x-button type="button" wire:click="deleteGallery({{$gallery->id}})"
+                                      class="m-2 bg-red-800 hover:bg-red-600"
+                                      wire:confirm="¿Desea eliminar este registro?">>
+                                <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                            </x-button>
                         @endcan
                     </td>
 

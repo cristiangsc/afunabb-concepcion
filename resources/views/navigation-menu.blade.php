@@ -55,9 +55,9 @@
                             <x-slot name="content">
 
                                 @if(canView('aporte'))
-                                    <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Aporte Gremial') }}</div>
-                                    <x-dropdown-link href="{{ route('aportes') }}">
-                                        {{ __('Aporte Socios') }}
+                                    <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Antecedentes Económicos') }}</div>
+                                    <x-dropdown-link href="{{ route('contabilidad') }}">
+                                        {{ __('Informes Contables') }}
                                     </x-dropdown-link>
                                 @endif
 
@@ -357,14 +357,14 @@
             <div class="flex items-center px-4">
                 <div class="font-medium text-base text-gray-800">Finanzas</div>
             </div>
-
-            <div class="mt-3 space-y-1">
+            <div  class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-responsive-nav-link href="{{ route('aportes') }}" :active="request()->routeIs('aportes')">
-                    {{ __('Aporte Socios') }}
-                </x-responsive-nav-link>
-
-            </div>
+                @if(canView('aporte'))
+                    <x-responsive-nav-link href="{{ route('contabilidad') }}"
+                                           :active="request()->routeIs('contabilidad')">
+                        {{ __('Informes Contables') }}
+                    </x-responsive-nav-link>
+                @endif
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">

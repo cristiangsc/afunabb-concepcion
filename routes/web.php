@@ -22,7 +22,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('documentos', App\Livewire\Documentos\Index::class)->middleware('can_view:documentos')->name('documentos');
     Route::get('beneficios', App\Livewire\Beneficios\Index::class)->middleware('can_view:beneficios')->name('beneficios');
     Route::get('noticias/{id}',App\Livewire\Noticias\Show::class)->middleware('can_view:noticias')->name('noticias.ver');
-    Route::get('aportes', App\Livewire\Contabilidad\SociosCuota\Index::class)->middleware('can_view:aportes')->name('aportes');
     Route::get('users/constancias', App\Livewire\Constancias\Index::class)->middleware('can_view:constancias')->name('constancias');
     Route::get('users/beneficios', App\Livewire\BeneficiosOtorgados\Index::class)->middleware('can_view:beneficiosOtorgados')->name('beneficios.otorgados');
     Route::get('directorio', App\Livewire\Directorios\Index::class)->middleware('can_view:directiva')->name('directorios');
@@ -35,6 +34,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('galeria/{id}', App\Livewire\Galeria\Show::class)->middleware('can_view:galeria')->name('show');
     Route::get('testimonios', App\Livewire\Testimonials\Index::class)->middleware('can_view:testimonios')->name('testimony');
     Route::get('aboutme', App\Livewire\AboutMe\Index::class)->middleware('can_view:acerca')->name('aboutme');
+    Route::get('contabilidad', App\Livewire\Contabilidad\Index::class)->middleware('can_view:documentos')->name('contabilidad');
 });
 
 Route::get('users', App\Livewire\Users\Index::class)->middleware('can_view:usuarios')->name('users');

@@ -45,7 +45,7 @@ class Index extends Component
         if ($this->button == 'Update')
         {
             $this->validate([
-                'imagen' => 'nullable|max:2048|image|mimes:jpg,jpeg,bmp,png',
+                'imagen' => 'nullable|max:5048|image|mimes:jpg,jpeg,bmp,png',
                 'title' => 'required|min:5',
             ]);
             $slide = Slide::find($this->id);
@@ -59,7 +59,7 @@ class Index extends Component
             $this->alert('success', 'Slide actualizado exitosamente', ['position' => 'bottom-center']);
         }else {
             $this->validate([
-                'imagen' => 'required|max:2048|image|mimes:jpg,jpeg,bmp,png',
+                'imagen' => 'required|max:5048|image|mimes:jpg,jpeg,bmp,png',
                 'title' => 'required|min:5',
             ]);
             $slide = Slide::create(['title' => strtoupper($this->title)]);

@@ -72,7 +72,7 @@ class Index extends Component
     public function store(): void
     {
         $this->validate([
-            'file' => 'required|max:4048|file|mimes:pdf,docx,xlsx,pptx',
+            'file' => 'required|file|mimes:pdf,docx,doc,xlsx,pptx|max:20480',
             'title' => 'required|min:5|unique:documentos,title'
         ]);
         $document = Documento::create([

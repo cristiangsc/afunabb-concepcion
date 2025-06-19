@@ -13,8 +13,7 @@
                     <div class="space-y-12">
                         <div class="border-b border-gray-900/10 pb-12">
                             <div class="bg-green-800  flex items-center justify-center  py-2">
-                                <h2 class="text-base font-semibold leading-7 text-white px-2 py-2">SALUDO DE
-                                    CUMPLEAÑOS</h2>
+                                <h2 class="text-base font-semibold leading-7 text-white px-2 py-2">SALUDO DE CUMPLEAÑOS</h2>
                                 @can('cumpleaños create')
                                     <button
                                         wire:click="OpenModalSaludo()"
@@ -46,13 +45,13 @@
                                                           wire:confirm="¿Desea eliminar este saludo?"
                                                           wire:stop
                                                           class="m-2 bg-red-800 hover:bg-red-600">
-                                                    <i class="fa-regular fa-trash-can"></i>
+                                                    <x-heroicon-o-trash class="h-4 w-4 text-white"/>
                                                 </x-button>
                                             @endcan
                                             @can('cumpleaños update')
                                                 <x-button type="button" wire:click="OpenModalSaludo({{$saludo->id}})"
                                                           class="m-2 bg-indigo-950 hover:bg-indigo-800">
-                                                    <i class="fa-regular fa-edit"></i>
+                                                    <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
                                                 </x-button>
                                             @endcan
                                         </div>
@@ -81,7 +80,7 @@
                     <label for="editor">
                         Ingrese Mensaje
                     </label>
-                    <textarea id="editor" class="w-full uppercase" wire:model="mensaje">
+                    <textarea id="editor" class="w-full uppercase" wire:model="mensaje" rows="15"  placeholder="Ingrese el mensaje del saludo de cumpleaños">
                             {!! $mensaje !!}
                     </textarea>
                     <x-input-error for="mensaje"/>
@@ -91,11 +90,9 @@
                         <div wire:loading wire:target="imagen"
                              class="block text-md text-white bg-red-400 border border-red-400 h-12 items-center p-4 rounded-md relative mb-5"
                              role="alert">
-                            <strong class="mr-1">Imagen cargando...</strong> ¡Espere un momento mientras se carga la
-                            imagen!
+                            <strong class="mr-1">Imagen cargando...</strong> ¡Espere un momento mientras se carga la imagen!
                         </div>
-                        <div
-                            class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                             <div class="text-center">
                                 @if($imagen)
                                     <img src="{{$imagen->temporaryUrl()}}" alt="fotografía" class="md:max-w-screen"/>

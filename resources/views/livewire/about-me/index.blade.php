@@ -46,7 +46,6 @@
                                         </p>
                                     </div>
 
-
                                     <div class="flex flex-wrap mt-auto">
                                         @can('acerca update')
                                             <x-button type="button" wire:click="OpenModal({{$about->id}})"

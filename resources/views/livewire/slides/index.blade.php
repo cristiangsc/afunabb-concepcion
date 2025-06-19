@@ -42,16 +42,15 @@
                                         <div class="flex flex-wrap mt-auto">
                                             @can('slides delete')
                                                 <x-button type="button" wire:click="deleteSlide({{$slide->id}})"
-                                                          wire:confirm="¿Desea eliminar este Slide?"
-                                                          wire:stop
-                                                          class="m-2 bg-red-800 hover:bg-red-600">
-                                                    <i class="fa-regular fa-trash-can"></i>
+                                                          class="m-2 bg-red-800 hover:bg-red-600"
+                                                          wire:confirm="¿Desea eliminar este registro?">
+                                                    <x-heroicon-o-trash class="h-4 w-4 text-white"/>
                                                 </x-button>
                                             @endcan
                                             @can('slides update')
                                                 <x-button type="button" wire:click="OpenModalSlide({{$slide->id}})"
-                                                          class="m-2 bg-green-950 hover:bg-green-800">
-                                                    <i class="fa-regular fa-edit"></i>
+                                                          class="m-2 bg-green-600 hover:bg-green-800">
+                                                    <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
                                                 </x-button>
                                             @endcan
                                         </div>
@@ -114,7 +113,7 @@
                                                class="sr-only">
                                     </label>
                                 </div>
-                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 2MB</p>
+                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 4MB</p>
                             </div>
                         </div>
                         <x-input-error for="imagen"/>

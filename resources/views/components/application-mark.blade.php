@@ -1,1 +1,2 @@
-<img src="{{ asset('assets/images/afunabb-logo.png') }}" class="w-20" alt="Logo Afunabb">
+
+<x-heroicon-s-home class="w-8 text-green-700"/>

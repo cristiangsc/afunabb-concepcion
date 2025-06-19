@@ -39,12 +39,17 @@
                         </td>
                         <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             @can('cuentas update')
-                                <span wire:click="OpenModalCuentaCreate({{ $cuenta->id }})"
-                                      class="bg-green-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Editar</span>
+                                <x-button type="button" wire:click="OpenModalCuentaCreate({{ $cuenta->id }})"
+                                          class="m-2 bg-green-600 hover:bg-green-800">
+                                    <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
+                                </x-button>
                             @endcan
                             @can('cuentas delete')
-                                <span wire:click="deleteCuenta({{$cuenta->id}})"
-                                      class="bg-red-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Eliminar</span>
+                                <x-button type="button" wire:click="deleteCuenta({{$cuenta->id}})"
+                                          class="m-2 bg-red-800 hover:bg-red-600"
+                                          wire:confirm="¿Desea eliminar este registro?">
+                                    <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                                </x-button>
                             @endcan
                         </td>
 

@@ -9,7 +9,7 @@
     <div class="grid xl:grid-cols-8 sm:grid-cols-1 md:grid-cols-4">
         <div class="xl:col-start-3 xl:col-span-4 md:col-start-2 md:col-span-2">
             <x-table-dinamic caption="SEDES">
-                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                <thead class="text-xs text-gray-700 uppercase bg-green-100">
                 <tr>
                     <th scope="col" class="px-6 py-2 cursor-pointer sticky top-0">
                         Nombre sede
@@ -39,12 +39,17 @@
                         </td>
                         <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             @can('sedes update')
-                                <span wire:click="OpenModalSedeCreate({{ $sede->id }})"
-                                      class="bg-green-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Editar</span>
+                                <x-button type="button" wire:click="OpenModalSedeCreate({{ $sede->id }})"
+                                          class="m-2 bg-green-600 hover:bg-green-800">
+                                    <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
+                                </x-button>
                             @endcan
                             @can('sedes delete')
-                                <span wire:click="deleteSede({{$sede->id}})"
-                                      class="bg-red-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Eliminar</span>
+                                    <x-button type="button" wire:click="deleteSede({{$sede->id}})"
+                                              class="m-2 bg-red-800 hover:bg-red-600"
+                                              wire:confirm="¿Desea eliminar este registro?">
+                                        <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                                    </x-button>
                             @endcan
                         </td>
 

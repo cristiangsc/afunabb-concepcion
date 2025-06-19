@@ -62,7 +62,7 @@ class Index extends Component
     public function store():void
     {
         $this->validate([
-            'pdf'=> 'required|max:3048|file|mimes:pdf',
+            'pdf'=> 'required|max:4048|file|mimes:pdf',
             'title'=>'required|min:5|unique:actas,title',
             'fecha'=>'required'
         ]);
