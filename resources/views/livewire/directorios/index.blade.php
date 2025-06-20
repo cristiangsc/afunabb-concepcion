@@ -20,7 +20,7 @@
                         </svg>
                     </div>
                     <input type="text" id="table-search"
-                           class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-800 block w-full pl-10 p-2.5"
+                           class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full pl-10 p-2.5"
                            placeholder="Buscar por rut: " wire:model.live="search">
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
     <div class="grid-container">
         <x-table-dinamic caption="LISTADO DE DIRECTORES Y DIRECTORAS">
-            <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+            <thead class="text-xs text-gray-700 uppercase bg-green-100">
             <tr>
                 <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
                     Rut
@@ -93,19 +93,24 @@
                     </td>
                     <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             <span
-                                class="{{ $directorio->estado == 'Vigente' ? 'bg-purple-800': 'bg-red-800'}} text-white py-1 px-3 rounded-full text-xs uppercase font-bold"> {{$directorio->estado}}  </span>
+                                class="{{ $directorio->estado === 'Vigente' ? 'bg-purple-800': 'bg-red-800'}} text-white py-1 px-3 rounded-full text-xs uppercase font-bold"> {{$directorio->estado}}  </span>
                     </td>
 
                     <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
 
                         @can('directiva update')
-                            <span wire:click="OpenModalDirectorioEdit({{ $directorio->id }})"
-                                  class="bg-green-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Editar</span>
+                            <x-button type="button" wire:click="OpenModalDirectorioEdit({{ $directorio->id }})"
+                                      class="m-2 bg-green-900 hover:bg-green-800">
+                                <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
+                            </x-button>
                         @endcan
 
                         @can('directiva delete')
-                            <span wire:click="deleteDirectorio({{$directorio->id}})"
-                                  class="bg-red-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Eliminar</span>
+                            <x-button type="button" wire:click="deleteDirectorio({{$directorio->id}})"
+                                      class="m-2 bg-red-800 hover:bg-red-600"
+                                      wire:confirm="¿Desea eliminar este registro?">
+                                <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                            </x-button>
                         @endcan
 
                     </td>

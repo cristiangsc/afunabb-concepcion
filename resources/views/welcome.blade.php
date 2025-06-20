@@ -50,10 +50,6 @@
 
     <x-principal.contacto/>
 
-    <div id="button-up">
-        <i class="fa fa-chevron-up"></i>
-    </div>
-
 
     <x-footer/>
 

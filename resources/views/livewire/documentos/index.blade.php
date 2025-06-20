@@ -181,7 +181,7 @@
 
                         <div
                             class="flex justify-center rounded-lg border border-dashed border-gray-900/25 px-3 py-5 heightPdf">
-                            @if($extension == 'pdf')
+                            @if($extension === 'pdf')
                                 <iframe name="file" src="{{$urlDocument}}" class="w-full"></iframe>
                             @endif
 

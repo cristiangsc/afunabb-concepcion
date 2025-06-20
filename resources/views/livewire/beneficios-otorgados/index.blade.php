@@ -20,7 +20,7 @@
                         </svg>
                     </div>
                     <input type="text" id="table-search"
-                           class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-800 block w-full pl-10 p-2.5"
+                           class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full pl-10 p-2.5"
                            placeholder="Buscar por rut: " wire:model.live="search">
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
     <div class="grid-container">
         <x-table-dinamic caption="LISTADO DE BENEFICIOS OTORGADOS">
-            <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+            <thead class="text-xs text-gray-700 uppercase bg-green-100">
             <tr>
                 <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
                     Rut
@@ -57,7 +57,7 @@
                         <button wire:click="OpenModalBeneficioAsignadoCreate()"
                                 type="button"
                                 class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-neutral-50">
-                            <svg class="h-7 w-7 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            <svg class="h-7 w-7 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"/>
@@ -94,11 +94,11 @@
                     </td>
                     <td class="text-left whitespace-nowrap border-dashed border-t border-gray-200">
                         @if(!empty($beneficio->observacion))
-                            <span
-                                class="{{$beneficio->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}"> {{  Str::limit(strip_tags($beneficio->observacion),25,'') }}</span>
-                            <span wire:click="OpenModalDescripcion('{{ $beneficio->observacion }}')"
-                                  class="bg-blue-500 text-white rounded-full font-bold cursor-pointer px-2"><i
-                                    class="fa-regular fa-eye"></i>
+
+                            <span  class="{{$beneficio->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}} uppercase flex items-center gap-x-2"> {{  Str::limit(strip_tags($beneficio->observacion),20,'') }}
+                                      <x-heroicon-o-eye
+                                          wire:click="OpenModalDescripcion('{{ $beneficio->observacion }}')"
+                                          class="h-6 w-6 ml-1 text-yellow-500 cursor-pointer"/>
                                 </span>
                         @endif
                     </td>
@@ -109,13 +109,18 @@
 
                     <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
                         @can('beneficiosOtorgados update')
-                            <span wire:click="OpenModalBeneficioAsignacionEdit({{ $beneficio->id }})"
-                                  class="bg-green-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Editar</span>
+                            <x-button type="button" wire:click="OpenModalBeneficioAsignacionEdit({{ $beneficio->id }})"
+                                      class="m-2 bg-green-900 hover:bg-green-800">
+                                <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
+                            </x-button>
                         @endcan
 
                         @can('beneficiosOtorgados delete')
-                            <span wire:click="deleteBeneficioAsignacion({{$beneficio->id}})"
-                                  class="bg-red-500 text-white py-1 px-3 rounded-full text-xs cursor-pointer">Eliminar</span>
+                                <x-button type="button" wire:click="deleteBeneficioAsignacion({{$beneficio->id}})"
+                                          class="m-2 bg-red-800 hover:bg-red-600"
+                                          wire:confirm="¿Desea eliminar este registro?">
+                                    <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                                </x-button>
                         @endcan
                     </td>
 

@@ -49,8 +49,8 @@
                                     <div class="flex flex-wrap mt-auto">
                                         @can('acerca update')
                                             <x-button type="button" wire:click="OpenModal({{$about->id}})"
-                                                      class="m-2 bg-green-900 hover:bg-green-800">
-                                                <i class="fa-regular fa-edit">Editar</i>
+                                                      class="m-2 bg-green-950 hover:bg-green-800">
+                                                <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
                                             </x-button>
                                         @endcan
                                     </div>

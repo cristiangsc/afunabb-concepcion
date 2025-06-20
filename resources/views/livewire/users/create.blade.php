@@ -2,7 +2,7 @@
     <x-dialog-modal wire:model="showModal" :maxWidth="'4xl'">
 
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg">
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg">
                 {{$title}}
             </div>
         </x-slot>
@@ -46,7 +46,7 @@
 
                         <select wire:model="role"
                                 multiple="multiple"
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full">
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full">
                             <option value="">Seleccione</option>
                             @foreach($roles as $key => $rol)
                                 <option value="{{ $key }}">{{ $rol }}</option>
@@ -114,10 +114,10 @@
                            class="block mb-2 text-sm font-medium text-gray-900">Calidad</label>
                     <label>
                         <select wire:model="calidad"
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5">
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5">
                             <option value="">Seleccione</option>
                             @foreach($enums as $key => $enum)
-                                @if($calidad == $enum)
+                                @if($calidad === $enum)
                                     <option value="{{ $key+1 }}" selected>{{ $enum }}</option>
                                 @else
                                     <option value="{{ $key+1 }}">{{ $enum }}</option>
@@ -195,7 +195,7 @@
                         type="email"
                     />
                 </div>
-                @if($this->method == "userUpdate")
+                @if($this->method === "userUpdate")
                     <div class="col-span-6 sm:col-span-3">
                         <x-component-input
                             placeholder="password"

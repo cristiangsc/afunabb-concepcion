@@ -3,7 +3,7 @@
         <label for="{{ $name }}"
                class="block mb-2 text-sm font-medium text-gray-900">{{ $label }}</label>
         <input type="{{$type}}" name="{{ $name }}" accept="image/png, image/jpeg"
-               class="text-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+               class="text-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5"
                placeholder="{{ $placeholder }}"
                wire:model="{{ $name }}"
                id="{{$name}}"

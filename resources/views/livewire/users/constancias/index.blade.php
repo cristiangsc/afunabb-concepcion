@@ -9,7 +9,7 @@
     <div class="grid-container">
 
             <x-table-dinamic caption="CONSTANCIAS OTORGADAS POR PARTICIPACIÓN">
-                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                <thead class="text-xs text-gray-700 uppercase bg-green-100">
                 <tr>
                     <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
                         Rut
@@ -63,11 +63,8 @@
                         </td>
                         <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             @if(!empty($constancia->descripcion))
-                                <span
-                                    class="text-gray-700 uppercase"> {{  Str::limit(strip_tags($constancia->descripcion),20,'') }}</span>
-                                <span wire:click="OpenModalDescripcion('{{ $constancia->descripcion }}')"
-                                      class="bg-blue-500 text-white rounded-full font-bold cursor-pointer px-2"><i
-                                        class="fa-regular fa-eye"></i>
+                                <span class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}} uppercase flex items-center gap-x-2"> {{  Str::limit(strip_tags($constancia->descripcion),20,'') }}
+                                      <x-heroicon-o-eye wire:click="OpenModalDescripcion('{{ $constancia->descripcion }}')" class="h-6 w-6 ml-1 text-yellow-500 cursor-pointer"/>
                                 </span>
                             @endif
                         </td>

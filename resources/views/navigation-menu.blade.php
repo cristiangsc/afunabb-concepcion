@@ -37,7 +37,6 @@
 
                     <div class="mt-4 relative">
                         <x-dropdown align="right" width="48">
-
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
                                     <button type="button"
@@ -54,8 +53,9 @@
 
                             <x-slot name="content">
 
-                                @if(canView('aporte'))
-                                    <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Antecedentes Económicos') }}</div>
+                                @if(canView('finanza'))
+                                    <div
+                                        class="block px-4 py-2 text-xs text-gray-400">{{ __('Antecedentes Económicos') }}</div>
                                     <x-dropdown-link href="{{ route('contabilidad') }}">
                                         {{ __('Informes Contables') }}
                                     </x-dropdown-link>
@@ -159,9 +159,6 @@
                                             {{ __('Sede') }}
                                         </x-dropdown-link>
                                     @endif
-
-
-                                    <div class="block px-4 py-2 text-xs text-gray-400">{{ __('Contabilidad') }}</div>
 
                                     <div
                                         class="block px-4 py-2 text-xs text-gray-400">{{ __('Otras Configuraciones') }}</div>
@@ -357,7 +354,7 @@
             <div class="flex items-center px-4">
                 <div class="font-medium text-base text-gray-800">Finanzas</div>
             </div>
-            <div  class="mt-3 space-y-1">
+            <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 @if(canView('aporte'))
                     <x-responsive-nav-link href="{{ route('contabilidad') }}"
@@ -365,189 +362,193 @@
                         {{ __('Informes Contables') }}
                     </x-responsive-nav-link>
                 @endif
-        </div>
-
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                <div class="font-medium text-base text-gray-800">Archivos descargables</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <!-- Account Management -->
-                <x-responsive-nav-link href="{{ route('actas') }}" :active="request()->routeIs('actas')">
-                    {{ __('Actas') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('documentos') }}" :active="request()->routeIs('documentos')">
-                    {{ __('Documentos') }}
-                </x-responsive-nav-link>
-            </div>
-        </div>
-
-        @if(canView('socio'))
-            <div class="pt-4 pb-1 border-t border-gray-200">
-                <div class="flex items-center px-4">
-                    <div class="font-medium text-base text-gray-800">Configuraciones</div>
-                </div>
-
-                <div class="mt-3 space-y-1">
-                    <!-- Account Management -->
-                    @if(canView('bancos'))
-                        <x-responsive-nav-link href="{{ route('bancos') }}" :active="request()->routeIs('bancos')">
-                            {{ __('Bancos') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('cargos'))
-                        <x-responsive-nav-link href="{{ route('cargos') }}" :active="request()->routeIs('cargos')">
-                            {{ __('Cargos') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('comunas'))
-                        <x-responsive-nav-link href="{{ route('comunas') }}" :active="request()->routeIs('comunas')">
-                            {{ __('Comunas') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('cuentas'))
-                        <x-responsive-nav-link href="{{ route('cuentas') }}" :active="request()->routeIs('cuentas')">
-                            {{ __('Cuentas') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('reparticion'))
-                        <x-responsive-nav-link href="{{ route('reparticiones') }}"
-                                               :active="request()->routeIs('reparticiones')">
-                            {{ __('Reparticiones') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('photos'))
-                        <x-responsive-nav-link href="{{ route('photos') }}" :active="request()->routeIs('photos')">
-                            {{ __('Fotografía Directorio') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('slides'))
-                        <x-responsive-nav-link href="{{ route('slides') }}" :active="request()->routeIs('slides')">
-                            {{ __('Slide Principal') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('saludos'))
-                        <x-responsive-nav-link href="{{ route('saludos') }}" :active="request()->routeIs('saludos')">
-                            {{ __('Saludo de Cumpleaños') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('role'))
-                        <x-responsive-nav-link href="{{ route('roles') }}" :active="request()->routeIs('roles')">
-                            {{ __('Roles and Permissions') }}
-                        </x-responsive-nav-link>
-                    @endif
-                </div>
             </div>
 
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="flex items-center px-4">
-                    <div class="font-medium text-base text-gray-800">Administración</div>
+                    <div class="font-medium text-base text-gray-800">Archivos descargables</div>
                 </div>
 
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
-                    @if(canView('usuarios'))
-                        <x-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
-                            {{ __('Socios/as') }}
-                        </x-responsive-nav-link>
-                    @endif
+                    <x-responsive-nav-link href="{{ route('actas') }}" :active="request()->routeIs('actas')">
+                        {{ __('Actas') }}
+                    </x-responsive-nav-link>
 
-                    @if(canView('constancias'))
-                        <x-responsive-nav-link href="{{ route('constancias') }}"
-                                               :active="request()->routeIs('constancias')">
-                            {{ __('Constancias') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('beneficiosOtorgados'))
-                        <x-responsive-nav-link href="{{ route('beneficios.otorgados') }}"
-                                               :active="request()->routeIs('beneficios.otorgados')">
-                            {{ __('Otorgar Beneficios') }}
-                        </x-responsive-nav-link>
-                    @endif
-
-                    @if(canView('directiva'))
-                        <x-responsive-nav-link href="{{ route('directorios') }}"
-                                               :active="request()->routeIs('directorios')">
-                            {{ __('Mantenedor Directiva') }}
-                        </x-responsive-nav-link>
-                    @endif
+                    <x-responsive-nav-link href="{{ route('documentos') }}" :active="request()->routeIs('documentos')">
+                        {{ __('Documentos') }}
+                    </x-responsive-nav-link>
                 </div>
             </div>
-        @endif
 
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
-                             alt="{{ Auth::user()->nombre }}"/>
+            @if(canView('socio'))
+                <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="flex items-center px-4">
+                        <div class="font-medium text-base text-gray-800">Configuraciones</div>
                     </div>
-                @endif
 
-                <div>
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->nombre }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="mt-3 space-y-1">
+                        <!-- Account Management -->
+                        @if(canView('bancos'))
+                            <x-responsive-nav-link href="{{ route('bancos') }}" :active="request()->routeIs('bancos')">
+                                {{ __('Bancos') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('cargos'))
+                            <x-responsive-nav-link href="{{ route('cargos') }}" :active="request()->routeIs('cargos')">
+                                {{ __('Cargos') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('comunas'))
+                            <x-responsive-nav-link href="{{ route('comunas') }}"
+                                                   :active="request()->routeIs('comunas')">
+                                {{ __('Comunas') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('cuentas'))
+                            <x-responsive-nav-link href="{{ route('cuentas') }}"
+                                                   :active="request()->routeIs('cuentas')">
+                                {{ __('Cuentas') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('reparticion'))
+                            <x-responsive-nav-link href="{{ route('reparticiones') }}"
+                                                   :active="request()->routeIs('reparticiones')">
+                                {{ __('Reparticiones') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('photos'))
+                            <x-responsive-nav-link href="{{ route('photos') }}" :active="request()->routeIs('photos')">
+                                {{ __('Fotografía Directorio') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('slides'))
+                            <x-responsive-nav-link href="{{ route('slides') }}" :active="request()->routeIs('slides')">
+                                {{ __('Slide Principal') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('saludos'))
+                            <x-responsive-nav-link href="{{ route('saludos') }}"
+                                                   :active="request()->routeIs('saludos')">
+                                {{ __('Saludo de Cumpleaños') }}
+                            </x-responsive-nav-link>
+                        @endif
+
+                        @if(canView('role'))
+                            <x-responsive-nav-link href="{{ route('roles') }}" :active="request()->routeIs('roles')">
+                                {{ __('Roles and Permissions') }}
+                            </x-responsive-nav-link>
+                        @endif
+                    </div>
                 </div>
-            </div>
 
-            <div class="mt-3 space-y-1">
-                <!-- Account Management -->
-                @if(canView('perfil'))
-                    <x-responsive-nav-link href="{{ route('profile.show') }}"
-                                           :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
-                    </x-responsive-nav-link>
-                @endif
+                <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="flex items-center px-4">
+                        <div class="font-medium text-base text-gray-800">Administración</div>
+                    </div>
 
-                @if(canView('misBeneficios'))
-                    <x-responsive-nav-link href="{{ route('user.beneficios') }}"
-                                           :active="request()->routeIs('user.beneficios')">
-                        {{ __('Mis Beneficios') }}
-                    </x-responsive-nav-link>
-                @endif
+                    <div class="mt-3 space-y-1">
+                        <!-- Account Management -->
+                        @if(canView('usuarios'))
+                            <x-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                                {{ __('Socios/as') }}
+                            </x-responsive-nav-link>
+                        @endif
 
-                @if(canView('misConstancias'))
-                    <x-responsive-nav-link href="{{ route('user.constancias') }}"
-                                           :active="request()->routeIs('user.constancias')">
-                        {{ __('Mis Constancias') }}
-                    </x-responsive-nav-link>
-                @endif
+                        @if(canView('constancias'))
+                            <x-responsive-nav-link href="{{ route('constancias') }}"
+                                                   :active="request()->routeIs('constancias')">
+                                {{ __('Constancias') }}
+                            </x-responsive-nav-link>
+                        @endif
 
-                @if(canView('testimonios'))
-                    <x-responsive-nav-link href="{{ route('testimony') }}"
-                                           :active="request()->routeIs('testimony')">
-                        {{ __('Testimonios') }}
-                    </x-responsive-nav-link>
-                @endif
+                        @if(canView('beneficiosOtorgados'))
+                            <x-responsive-nav-link href="{{ route('beneficios.otorgados') }}"
+                                                   :active="request()->routeIs('beneficios.otorgados')">
+                                {{ __('Otorgar Beneficios') }}
+                            </x-responsive-nav-link>
+                        @endif
 
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-responsive-nav-link href="{{ route('api-tokens.index') }}"
-                                           :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
-                    </x-responsive-nav-link>
-                @endif
+                        @if(canView('directiva'))
+                            <x-responsive-nav-link href="{{ route('directorios') }}"
+                                                   :active="request()->routeIs('directorios')">
+                                {{ __('Mantenedor Directiva') }}
+                            </x-responsive-nav-link>
+                        @endif
+                    </div>
+                </div>
+            @endif
 
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}" x-data>
-                    @csrf
-                    <x-responsive-nav-link href="{{ route('logout') }}"
-                                           @click.prevent="$root.submit();">{{ __('Log Out') }}</x-responsive-nav-link>
-                </form>
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="flex items-center px-4">
+                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                        <div class="shrink-0 mr-3">
+                            <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                                 alt="{{ Auth::user()->nombre }}"/>
+                        </div>
+                    @endif
+
+                    <div>
+                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->nombre }}</div>
+                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    </div>
+                </div>
+
+                <div class="mt-3 space-y-1">
+                    <!-- Account Management -->
+                    @if(canView('perfil'))
+                        <x-responsive-nav-link href="{{ route('profile.show') }}"
+                                               :active="request()->routeIs('profile.show')">
+                            {{ __('Profile') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    @if(canView('misBeneficios'))
+                        <x-responsive-nav-link href="{{ route('user.beneficios') }}"
+                                               :active="request()->routeIs('user.beneficios')">
+                            {{ __('Mis Beneficios') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    @if(canView('misConstancias'))
+                        <x-responsive-nav-link href="{{ route('user.constancias') }}"
+                                               :active="request()->routeIs('user.constancias')">
+                            {{ __('Mis Constancias') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    @if(canView('testimonios'))
+                        <x-responsive-nav-link href="{{ route('testimony') }}"
+                                               :active="request()->routeIs('testimony')">
+                            {{ __('Testimonios') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <x-responsive-nav-link href="{{ route('api-tokens.index') }}"
+                                               :active="request()->routeIs('api-tokens.index')">
+                            {{ __('API Tokens') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}" x-data>
+                        @csrf
+                        <x-responsive-nav-link href="{{ route('logout') }}"
+                                               @click.prevent="$root.submit();">{{ __('Log Out') }}</x-responsive-nav-link>
+                    </form>
+                </div>
+
             </div>
 
         </div>
-
     </div>
 </nav>
 

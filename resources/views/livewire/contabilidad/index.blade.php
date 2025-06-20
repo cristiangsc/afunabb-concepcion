@@ -47,7 +47,7 @@
                     <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='created_at'></x-sort>
                 </th>
                 <th scope="col" class="py-2 text-right pr-4 cursor-pointer sticky top-0">
-                    @can('documentos create')
+                    @can('finanza create')
                         <button
                             wire:click="OpenModalDocumentCreate()"
                             type="button"
@@ -77,18 +77,18 @@
                                 class="text-gray-700">{{$document->created_at}}</span>
                     </td>
                     <td class="text-center pr-2 whitespace-nowrap border-dashed border-t border-gray-200">
-                        @can('documentos read')
+                        @can('finanza read')
                             <x-button type="button" wire:click="showDocument({{$document->id}})"
                                       class="m-2 bg-yellow-500 hover:bg-yellow-700">
                                 <x-heroicon-o-eye class="h-4 w-4 text-white"/>
                             </x-button>
                         @endcan
-                        @can('documentos delete')
-                                <x-button type="button" wire:click="deleteDocument({{$document->id}})"
-                                          class="m-2 bg-red-800 hover:bg-red-600"
-                                          wire:confirm="¿Desea eliminar este registro?">
-                                    <x-heroicon-o-trash class="h-4 w-4 text-white"/>
-                                </x-button>
+                        @can('finanza delete')
+                            <x-button type="button" wire:click="deleteDocument({{$document->id}})"
+                                      class="m-2 bg-red-800 hover:bg-red-600"
+                                      wire:confirm="¿Desea eliminar este registro?">
+                                <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                            </x-button>
                         @endcan
                     </td>
                 </tr>
@@ -181,7 +181,7 @@
 
                         <div
                             class="flex justify-center rounded-lg border border-dashed border-gray-900/25 px-3 py-5 heightPdf">
-                            @if($extension == 'pdf')
+                            @if($extension === 'pdf')
                                 <iframe name="file" src="{{$urlDocument}}" class="w-full"></iframe>
                             @endif
 

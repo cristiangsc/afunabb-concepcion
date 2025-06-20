@@ -33,7 +33,7 @@ class Index extends Component
     public function order($sort): void
     {
         if ($this->sort == $sort) {
-            if ($this->direction == 'desc') {
+            if ($this->direction === 'desc') {
                 $this->direction = 'asc';
             } else {
                 $this->direction = 'desc';
@@ -46,10 +46,10 @@ class Index extends Component
 
     public function showDocument($id)
     {
-        can('documentos read');
+        can('finanza read');
         $document = Finanza::find($id)->getMedia('finanzas')->first();
         $this->extension = getExtension($document->file_name, true);
-        if ($this->extension == 'pdf') {
+        if ($this->extension === 'pdf') {
             $this->urlDocument = $document->getUrl();
             $this->nameDocument = $document->name;
             $this->showModalDocument = !$this->showModalDocument;
@@ -63,7 +63,7 @@ class Index extends Component
 
     public function OpenModalDocumentCreate(): void
     {
-        can('documentos create');
+        can('finanza create');
         $this->resetErrorBag();
         $this->resetValidation();
         $this->showModal = !$this->showModal;
@@ -85,7 +85,7 @@ class Index extends Component
 
     public function deleteDocument(Finanza $finanza): void
     {
-        can('documentos delete');
+        can('finanza delete');
         Finanza::find($finanza->id)->delete();
         $this->alert('info', '¡El registro ha sido eliminado con éxito!', ['position' => 'bottom-center']);
     }
@@ -97,7 +97,7 @@ class Index extends Component
 
     public function render(): Renderable
     {
-        can('documentos read');
+        can('finanza read');
         $documents = Finanza::with('media')->orWhere('title','like','%' .$this->search . '%' )->orderBy($this->sort, $this->direction)->paginate();
         return view('livewire.contabilidad.index', compact('documents'));
     }

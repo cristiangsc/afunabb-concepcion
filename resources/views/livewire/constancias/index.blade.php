@@ -21,7 +21,7 @@
                         </svg>
                     </div>
                     <input type="text" id="table-search"
-                           class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-800 block w-full pl-10 p-2.5"
+                           class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full pl-10 p-2.5"
                            placeholder="Buscar por rut: " wire:model.live="search">
                 </div>
             </div>
@@ -29,118 +29,131 @@
     </div>
 
     <div class="grid-container">
-            <x-table-dinamic caption="CONSTANCIAS OTORGADAS POR PARTICIPACIÓN">
-                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
-                <tr>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        Rut
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        Nombres
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        Repartición
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        Fecha Inicio
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        Fecha Término
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        Fecha de registro
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                         Descripción
-                    </th>
-                    <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
-                        @can('constancias create')
-                            <button
-                                wire:click="OpenModalConstanciaCreate()"
-                                type="button"
-                                class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-neutral-50">
-                                <svg class="h-7 w-7 text-green-800" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"/>
-                                </svg>
-                            </button>
-                        @endcan
-                    </th>
-                </tr>
-                </thead>
-                <tbody class="text-xxs font-light text-center">
-                @foreach($constancias as $constancia)
-                    <tr wire:key="{{ $constancia->id }}" class="border-b {{$constancia->user->deleted_at ? 'bg-red-400 hover:bg-red-800' : 'border-gray-300 hover:bg-gray-100'}}">
+        <x-table-dinamic caption="CONSTANCIAS OTORGADAS POR PARTICIPACIÓN">
+            <thead class="text-xs text-gray-700 uppercase bg-green-100">
+            <tr>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Rut
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Nombres
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Repartición
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Fecha Inicio
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Fecha Término
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Fecha de registro
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    Descripción
+                </th>
+                <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
+                    @can('constancias create')
+                        <button
+                            wire:click="OpenModalConstanciaCreate()"
+                            type="button"
+                            class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-neutral-50">
+                            <svg class="h-7 w-7 text-green-800" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"/>
+                            </svg>
+                        </button>
+                    @endcan
+                </th>
+            </tr>
+            </thead>
+            <tbody class="text-xxs font-light text-center">
+            @foreach($constancias as $constancia)
+                <tr wire:key="{{ $constancia->id }}"
+                    class="border-b {{$constancia->user->deleted_at ? 'bg-red-400 hover:bg-red-800' : 'border-gray-300 hover:bg-gray-100'}}">
 
-                        <td class="py-4 px-2 text-center  whitespace-nowrap border-dashed border-t border-gray-200">
+                    <td class="py-4 px-2 text-center  whitespace-nowrap border-dashed border-t border-gray-200">
                             <span
                                 class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}">{{ rutFormat($constancia->rut_id) }} </span>
-                        </td>
-                        <td class="py-4 px-2 text-left whitespace-nowrap border-dashed border-t border-gray-200 uppercase">
-                            <span class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}">  {{ $constancia->user->fullNameReverse }}</span>
-                        </td>
-                        <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
-                            <span class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}"> {{$constancia->user->reparticion->name}} </span>
-                        </td>
-                        <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
+                    </td>
+                    <td class="py-4 px-2 text-left whitespace-nowrap border-dashed border-t border-gray-200 uppercase">
+                        <span
+                            class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}">  {{ $constancia->user->fullNameReverse }}</span>
+                    </td>
+                    <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
+                        <span
+                            class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}"> {{$constancia->user->reparticion->name}} </span>
+                    </td>
+                    <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             <span
                                 class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}"> {{$constancia->inicio}} </span>
-                        </td>
-                        <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
+                    </td>
+                    <td class="py-4 px-2 text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             <span
                                 class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}"> {{$constancia->termino}}</span>
-                        </td>
-                        <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
+                    </td>
+                    <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             <span
                                 class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}}">{{$constancia->created_at}}</span>
-                        </td>
-                        <td class="text-left whitespace-nowrap border-dashed border-t border-gray-200">
-                            @if(!empty($constancia->descripcion))
-                                <span
-                                    class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}} uppercase"> {{  Str::limit(strip_tags($constancia->descripcion),20,'') }}</span>
-                                <span wire:click="OpenModalDescripcion('{{ $constancia->descripcion }}')"
-                                      class="bg-blue-500 text-white rounded-full font-bold cursor-pointer px-2"><i
-                                        class="fa-regular fa-eye"></i>
+                    </td>
+                    <td class="text-left whitespace-nowrap border-dashed border-t border-gray-200">
+                        @if(!empty($constancia->descripcion))
+                            <span
+                                class="{{$constancia->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}} uppercase flex items-center gap-x-2"> {{  Str::limit(strip_tags($constancia->descripcion),20,'') }}
+                                      <x-heroicon-o-eye
+                                          wire:click="OpenModalDescripcion('{{ $constancia->descripcion }}')"
+                                          class="h-6 w-6 ml-1 text-yellow-500 cursor-pointer"/>
                                 </span>
-                            @endif
-                        </td>
+                        @endif
+                    </td>
 
-                        <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
+                    <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
+                        @can('constancias update')
+                            <x-button type="button" wire:click="OpenModalConstanciaEdit({{ $constancia->id }})"
+                                      class="m-2 bg-green-900 hover:bg-green-800">
+                                <x-heroicon-o-pencil-square class="h-4 w-4 text-white"/>
+                            </x-button>
+                        @endcan
 
-                            @can('constancias update')
-                                <span wire:click="OpenModalConstanciaEdit({{ $constancia->id }})"
-                                      class="bg-green-500 text-white py-1 px-2 rounded-full text-xs cursor-pointer">Editar</span>
-                            @endcan
+                        @can('constancias print')
 
-                            @can('constancias print')
-                                <a href="{{ route('pdfconstancia',$constancia->id) }}" target="_blank"
-                                   class="bg-indigo-500 text-white font-semibold py-1 px-2 rounded-full text-xs cursor-pointer">Imprimir</a>
-                            @endcan
+                            <x-button type="button"
+                                      onclick="window.location.href='{{ route('pdfconstancia',$constancia->id) }}'"
+                                      class="m-2 bg-blue-600 hover:bg-blue-800">
+                                <x-heroicon-s-printer class="h-4 w-4 text-white"/>
+                            </x-button>
 
-                            @can('constancias delete')
-                                <span wire:click="deleteConstancia({{$constancia->id}})"
-                                      class="bg-red-500 text-white py-1 px-2 rounded-full text-xs cursor-pointer">Eliminar</span>
-                            @endcan
+                        @endcan
 
-                        </td>
+                        @can('constancias delete')
+                            <x-button type="button" wire:click="deleteConstancia({{$constancia->id}})"
+                                      class="m-2 bg-red-800 hover:bg-red-600"
+                                      wire:confirm="¿Desea eliminar este registro?">
+                                <x-heroicon-o-trash class="h-4 w-4 text-white"/>
+                            </x-button>
+                        @endcan
 
-                    </tr>
-                @endforeach
-                </tbody>
+                    </td>
 
-                <x-slot:paginacion>
-                    @if ($constancias->hasPages())
-                        <div class="px-6 py-3 bg-gray-200">
-                            {{ $constancias->links() }}
-                        </div>
-                    @endif
-                        <p class="text-white ml-2">Lineas destacadas de color rojo corresponde a soci@ que ya no pertenece a la Asociación</p>
-                </x-slot:paginacion>
+                </tr>
+            @endforeach
+            </tbody>
 
-            </x-table-dinamic>
+            <x-slot:paginacion>
+                @if ($constancias->hasPages())
+                    <div class="px-6 py-3 bg-gray-200">
+                        {{ $constancias->links() }}
+                    </div>
+                @endif
+                <p class="text-white ml-2">Lineas destacadas de color rojo corresponde a soci@ que ya no pertenece a la
+                    Asociación</p>
+            </x-slot:paginacion>
 
-</div>
+        </x-table-dinamic>
+
+    </div>
 
     <x-dialog-modal wire:model="showModalDescripcion" :maxWidth="'sm'">
         <x-slot name="title">

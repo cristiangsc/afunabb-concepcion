@@ -8,7 +8,7 @@
 
     <div class="py-4">
         <div class="container">
-            <div class="relative overflow-x-auto shadow-md md:rounded-lg bg-indigo-800">
+            <div class="relative overflow-x-auto shadow-md md:rounded-lg bg-green-800">
                 <div class="p-4 flex items-center">
                     <span class="text-md text-white mr-2">
                         Mostar
@@ -16,7 +16,7 @@
                     <div class="mr-3 text-sm">
                         <label>
                             <select wire:model.live="cant"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500">
                                 <option value="5">5</option>
                                 <option value="25">25</option>
                                 <option value="50">50</option>
@@ -35,7 +35,7 @@
                             type="button"
                             class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-neutral-50"
                         >
-                            <svg class="h-7 w-7 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            <svg class="h-7 w-7 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"/>
@@ -46,38 +46,53 @@
                 </div>
 
                 <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
-                    <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                    <thead class="text-xs text-gray-700 uppercase bg-green-100">
                     <tr>
                         <th scope="col" class="px-3 py-3 cursor-pointer sticky top-0">
                             Avatar
                         </th>
 
                         <th scope="col" class="px-6 py-3 cursor-pointer sticky top-0" wire:click="order('rut')">
+                             <span class="inline-flex items-center gap-1">
+                        <x-heroicon-c-arrows-up-down class="h-4 w-4"/>
                             Rut
                             <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='rut'></x-sort>
+                             </span>
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer sticky top-0" wire:click="order('nombre')">
                             <div class="flex">
+                                 <span class="inline-flex items-center gap-1">
+                        <x-heroicon-c-arrows-up-down class="h-4 w-4"/>
                                 Nombres
                                 <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='nombre'></x-sort>
+                                 </span>
                             </div>
 
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer sticky top-0" wire:click="order('paterno')">
                             <div class="flex whitespace-nowrap">
-                                Paterno
-                                <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='paterno'></x-sort>
+                                 <span class="inline-flex items-center gap-1">
+                                      <x-heroicon-c-arrows-up-down class="h-4 w-4"/>
+                                         Paterno
+                                      <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='paterno'></x-sort>
+                                 </span>
                             </div>
                         </th>
                         <th scope="col" class="px-6 py-3 cursor-pointer sticky top-0" wire:click="order('materno')">
                             <div class="flex whitespace-nowrap">
-                                Materno
-                                <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='materno'></x-sort>
+                                 <span class="inline-flex items-center gap-1">
+                                    <x-heroicon-c-arrows-up-down class="h-4 w-4"/>
+                                     Materno
+                                    <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='materno'></x-sort>
+                                 </span>
                             </div>
                         </th>
                         <th scope="col" class="px-3 py-3 cursor-pointer sticky top-0" wire:click="order('sede_id')">
-                            Sede
-                            <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='sede_id'></x-sort>
+                             <span class="inline-flex items-center gap-1">
+                                <x-heroicon-c-arrows-up-down class="h-4 w-4"/>
+                                Sede
+                                <x-sort sort="{{ $sort }}" direction="{{ $direction }}" campo='sede_id'></x-sort>
+                             </span>
                         </th>
                         <th scope="col" class="px-3 py-3 cursor-pointer sticky top-0">
                             Rol
@@ -111,7 +126,7 @@
                                              src="{{ asset('storage/'.$user->profile_photo_path) }}" alt="Avatar">
                                     @else
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-purple-900">
+                                             stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-green-900">
                                           <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
                                         </svg>
@@ -146,8 +161,16 @@
                             </td>
                             <td
                                 class="py-2 px-6 text-left whitespace-nowrap border-dashed border-t border-gray-200">
-                                <span
-                                    class="{{$user->deleted_at ? 'text-white font-bold' : 'bg-purple-200 text-purple-600'}} py-1 px-3 rounded-full text-xs">{{ $user->deleted_at ? 'NO ES SOCI@' : $user->getRoleNames() }}</span>
+
+                                @php
+                                    $roles = $user->getRoleNames();
+                                    $esSocio = $roles->contains('socio');
+                                @endphp
+
+                                <span class=" py-1 px-3 rounded-full text-md font-bold {{ $user->deleted_at ? 'text-white font-bold bg-red-600' : ($esSocio ? 'bg-green-600 text-white' : 'bg-red-500 text-white') }}">
+                                    {{ $user->deleted_at ? 'NO ES SOCI@' : $roles->implode(', ') }}
+                                </span>
+
                             </td>
 
                             <td class="px-2 py-2 border-dashed border-t border-gray-200">
@@ -213,18 +236,21 @@
                                     </div>
                                 @else
                                     @can('usuarios restaurar')
-                                        <div class=" transform hover:text-purple-500 hover:scale-110 cursor-pointer btn-cyan p-0.5 mb-0.5">
+                                        <div
+                                            class=" transform hover:text-purple-500 hover:scale-110 cursor-pointer btn-cyan p-0.5 mb-0.5">
                                             <a href="javascript:void(0)" wire:click="restaurarSocio({{$user->id}})"
                                                class="flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1"
                                                      viewBox="0 0 24 24" class="w-6 h-6">
-                                                    <path d="m23,4h-6v-1.5c0-1.378-1.121-2.5-2.5-2.5h-5c-1.379,0-2.5,1.122-2.5,2.5v1.5H1v1h1.551l1.799,16.767c.137,1.273,1.205,2.233,2.485,2.233h10.295c1.277,0,2.346-.958,2.485-2.229l1.833-16.771h1.552v-1Zm-15-1.5c0-.827.673-1.5,1.5-1.5h5c.827,0,1.5.673,1.5,1.5v1.5h-8v-1.5Zm10.621,19.163c-.084.763-.725,1.337-1.491,1.337H6.835c-.768,0-1.409-.576-1.491-1.34L3.556,5h16.886l-1.821,16.663Zm-11.05-7.769c-.769-.769-.769-2.019,0-2.787l3.202-3.203.707.707-3.202,3.203c-.057.057-.106.12-.146.187h5.367c1.379,0,2.5,1.122,2.5,2.5v4.5h-1v-4.5c0-.827-.673-1.5-1.5-1.5h-5.367c.04.067.089.129.146.187l3.202,3.203-.707.707-3.202-3.203Z"/>
+                                                    <path
+                                                        d="m23,4h-6v-1.5c0-1.378-1.121-2.5-2.5-2.5h-5c-1.379,0-2.5,1.122-2.5,2.5v1.5H1v1h1.551l1.799,16.767c.137,1.273,1.205,2.233,2.485,2.233h10.295c1.277,0,2.346-.958,2.485-2.229l1.833-16.771h1.552v-1Zm-15-1.5c0-.827.673-1.5,1.5-1.5h5c.827,0,1.5.673,1.5,1.5v1.5h-8v-1.5Zm10.621,19.163c-.084.763-.725,1.337-1.491,1.337H6.835c-.768,0-1.409-.576-1.491-1.34L3.556,5h16.886l-1.821,16.663Zm-11.05-7.769c-.769-.769-.769-2.019,0-2.787l3.202-3.203.707.707-3.202,3.203c-.057.057-.106.12-.146.187h5.367c1.379,0,2.5,1.122,2.5,2.5v4.5h-1v-4.5c0-.827-.673-1.5-1.5-1.5h-5.367c.04.067.089.129.146.187l3.202,3.203-.707.707-3.202-3.203Z"/>
                                                 </svg>
                                                 <span class="text-white font-bold"> Reactivar</span>
                                             </a>
                                         </div>
 
-                                        <div class="transform hover:text-purple-500 hover:scale-110 cursor-pointer btn-red p-0.5">
+                                        <div
+                                            class="transform hover:text-purple-500 hover:scale-110 cursor-pointer btn-red p-0.5">
                                             <a href="javascript:void(0)" wire:click="borradoSocio({{$user->id}})"
                                                class="flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"

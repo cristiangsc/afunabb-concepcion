@@ -9,7 +9,7 @@
     <div class="grid-container">
 
             <x-table-dinamic caption="LISTADO DE MIS BENEFICIOS OTORGADOS">
-                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                <thead class="text-xs text-gray-700 uppercase bg-green-100">
                 <tr>
                     <th scope="col" class="px-2 py-2 cursor-pointer sticky top-0">
                         Rut
@@ -56,9 +56,10 @@
                         </td>
                         <td class="text-center whitespace-nowrap border-dashed border-t border-gray-200">
                             @if(!empty($beneficio->observacion))
-                                <span class="text-gray-700"> {{  Str::limit(strip_tags($beneficio->observacion),25,'') }}</span>
-                                <span wire:click="OpenModalDescripcion('{{ $beneficio->observacion }}')"
-                                      class="bg-blue-500 text-white rounded-full font-bold cursor-pointer px-2"><i class="fa-regular fa-eye"></i>
+                                <span  class="{{$beneficio->user->deleted_at ? 'text-white font-bold' : 'text-gray-700'}} uppercase flex items-center gap-x-2"> {{  Str::limit(strip_tags($beneficio->observacion),20,'') }}
+                                      <x-heroicon-o-eye
+                                          wire:click="OpenModalDescripcion('{{ $beneficio->observacion }}')"
+                                          class="h-6 w-6 ml-1 text-yellow-500 cursor-pointer"/>
                                 </span>
                             @endif
                         </td>
@@ -74,7 +75,7 @@
 
     <x-dialog-modal wire:model="showModalDescripcion" :maxWidth="'sm'">
         <x-slot name="title">
-            <div class="bg-indigo-800 text-white text-center border-b rounded-t-lg"></div>
+            <div class="bg-green-800 text-white text-center border-b rounded-t-lg"></div>
         </x-slot>
         <x-slot name="content">
             <p>{{$observacion}}</p>
