@@ -35,6 +35,15 @@
                         </x-nav-link>
                     @endif
 
+                    @if(canView('galeria'))
+                        <x-nav-link href="{{ route('encuestas.surveys.index') }}" :active="request()->routeIs('encuestas.surveys.index')">
+                            {{ __('Encuestas') }}
+                        </x-nav-link>
+                    @endif
+
+
+
+
                     <div class="mt-4 relative">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -230,6 +239,13 @@
                                             {{ __('Otorgar Beneficios') }}
                                         </x-dropdown-link>
                                     @endif
+
+                                    @if(canView('beneficiosOtorgados'))
+                                        <x-dropdown-link href="{{ route('encuestas.surveys.create') }}">
+                                            {{ __('Crear Encuesta') }}
+                                        </x-dropdown-link>
+                                    @endif
+
 
                                     <div class="border-t border-gray-200"></div>
 

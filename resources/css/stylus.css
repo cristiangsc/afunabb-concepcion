@@ -158,3 +158,7 @@
     min-height: 500px !important; /* Puedes ajustar el valor */
 }
 
+.carousel-transition {
+    transition: opacity 2s ease-in-out, transform 2.5s ease-in-out;
+}
+

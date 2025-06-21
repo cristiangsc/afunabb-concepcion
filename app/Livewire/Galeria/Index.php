@@ -34,7 +34,7 @@ class Index extends Component
     public function order($sort): void
     {
         if ($this->sort == $sort) {
-            if ($this->direction == 'desc') {
+            if ($this->direction === 'desc') {
                 $this->direction = 'asc';
             } else {
                 $this->direction = 'desc';

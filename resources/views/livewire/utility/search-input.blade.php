@@ -10,7 +10,7 @@
             </svg>
         </div>
         <input type="text" id="table-search"
-               class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-800 block w-full pl-10 p-2.5"
+               class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full pl-10 p-2.5"
                placeholder="Buscar"  wire:model.live="search">
     </div>
 </div>

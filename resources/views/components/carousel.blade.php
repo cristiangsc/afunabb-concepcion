@@ -1,15 +1,15 @@
 <div class="pm-2">
     <div class="bg-black">
-        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval="8000">
             <!-- Carousel wrapper -->
             <div class="relative h-48 md:h-[300px] xl:h-[550px] lg:h-[400px] overflow-hidden rounded-lg ">
                 <!-- Item 1 -->
 
                 @foreach($carousel as $c)
                     @if($c->getFirstMediaUrl($collection))
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="hidden carousel-transition" data-carousel-item>
                         <img src="{{$c->getFirstMediaUrl($collection)}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 brightness-75" alt="...">
-                        <div class="absolute centrado xl:text-xl lg:text-lg md:text-sm text-xs  uppercase font-semibold text-white lg:mt-9">{{$c->$titulo}}</div>
+                        <div class="absolute centrado xl:text-xl lg:text-lg md:text-sm text-xs text-center uppercase font-semibold text-white lg:mt-9">{{$c->$titulo}}</div>
                     </div>
                     @endif
                 @endforeach

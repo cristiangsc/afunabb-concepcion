@@ -32,7 +32,7 @@
                             <p class="text-gray-900 leading-none text-xs not-italic font-normal">
                                 Escrito por: {{$noticia->user->fullName}}</p>
                             <span
-                                class="inline-block text-xs leading-none text-gray-700 not-italic font-normal">Fecha: {{$noticia->created_at}}</span>
+                                class="inline-block text-xs leading-none text-gray-700 not-italic font-normal">Fecha: {{ \Carbon\Carbon::parse($noticia->created_at)->format('d/m/Y')}}</span>
                         </div>
                     </div>
                 </div>

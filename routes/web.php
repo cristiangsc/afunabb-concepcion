@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Encuestas\SurveyForm;
+use App\Livewire\Encuestas\SurveyIndexComponent;
+use App\Livewire\Encuestas\SurveyResultsComponent;
+use App\Livewire\Encuestas\SurveyShowComponent;
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,6 +39,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('testimonios', App\Livewire\Testimonials\Index::class)->middleware('can_view:testimonios')->name('testimony');
     Route::get('aboutme', App\Livewire\AboutMe\Index::class)->middleware('can_view:acerca')->name('aboutme');
     Route::get('contabilidad', App\Livewire\Contabilidad\Index::class)->middleware('can_view:documentos')->name('contabilidad');
+    Route::get('/encuestas', SurveyIndexComponent::class)->name('encuestas.surveys.index');
+    Route::get('/encuestas/{survey}', SurveyShowComponent::class)->name('encuestas.surveys.show');
+    Route::get('/encuestas/{survey}/resultados', SurveyResultsComponent::class)->name('encuestas.surveys.results');
+    Route::get('/admin/encuestas/crear', SurveyForm::class)->name('encuestas.surveys.create');
 });
 
 Route::get('users', App\Livewire\Users\Index::class)->middleware('can_view:usuarios')->name('users');

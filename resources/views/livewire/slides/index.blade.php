@@ -107,13 +107,13 @@
                                 </svg>
                                 <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                                     <label for="imagen"
-                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-green-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                        <span>Upload a file</span>
+                                           class="relative cursor-pointer rounded-md bg-white font-semibold text-green-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-green-600 focus-within:ring-offset-2 hover:text-green-500">
+                                        <span>Subir imagen</span>
                                         <input id="imagen" name="imagen" wire:model="imagen" type="file"
                                                class="sr-only">
                                     </label>
                                 </div>
-                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 4MB</p>
+                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 5MB</p>
                             </div>
                         </div>
                         <x-input-error for="imagen"/>

@@ -16,7 +16,7 @@ class Noticia extends Model implements HasMedia
 
     protected $fillable = ['title','body','user_id'];
 
-      protected static function boot(): void
+    protected static function boot(): void
     {
         parent::boot();
 
@@ -33,15 +33,15 @@ class Noticia extends Model implements HasMedia
         return $this->belongsTo(User::class);
     }
 
-    public function scopeSearch($query, $value): void
+    public function scopeSearch($query, $value)
     {
-        $query->where('title', 'like', '%' . $value . '%')
-            ->with(['user'=> function ($query){
+        return $query->where('title', 'like', '%' . $value . '%')
+            ->with(['user' => function ($query) {
                 $query->withTrashed();
-        }])
+            }])
             ->with('media');
     }
-//15.191.366-0
+
     protected function createdAt():Attribute
     {
         return new Attribute(

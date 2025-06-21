@@ -42,7 +42,7 @@ class Index extends Component
 
     public function save(): void
     {
-        if ($this->button == 'Update')
+        if ($this->button === 'Update')
         {
             $this->validate([
                 'imagen' => 'nullable|max:5048|image|mimes:jpg,jpeg,bmp,png',

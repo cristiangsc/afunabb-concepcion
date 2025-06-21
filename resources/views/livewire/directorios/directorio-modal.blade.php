@@ -27,12 +27,12 @@
                             <div class="space-y-4 text-center">
                                 @if($director->user->profile_photo_path)
                                     <img
-                                        class="w-52 h-52 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-52 lg:h-52"
+                                        class="w-40 h-40 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-40 lg:h-40"
                                         src="{{asset('/storage/'.$director->user->profile_photo_path)}}"
                                         alt="Avatar director/a"/>
                                 @else
                                     <img
-                                        class="w-52 h-52 mx-auto object-cover rounded-xl md:w-48 md:h-64 lg:w-52 lg:h-52"
+                                        class="w-40 h-40 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-40 lg:h-40"
                                         src="{{asset('assets/images/avatar.png')}}" alt="Avatar director/a"/>
                                 @endif
                                 <div>
@@ -43,7 +43,7 @@
                             </div>
                         @endforeach
                         <div class="space-y-4">
-                            <img class="mx-auto md:w-32 md:h-32 lg:w-32 lg:h-32"
+                            <img class="mx-auto"
                                  src="{{asset('assets/images/logo.png')}}" alt="logo"/>
                         </div>
                     </div>

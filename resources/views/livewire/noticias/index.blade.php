@@ -4,17 +4,27 @@
             <div>
                 <x-principal.header title="AFUNABB" subtitle="Noticias"/>
             </div>
-            <div class="xl:w-1/2 sm:w-80 md:w-[320px]">
-                <livewire:utility.search-input wire:model.live.debounce.300ms="search"/>
-            </div>
             <x-fecha-hoy/>
         </div>
     </x-slot>
+
     <span wire:loading>
         <livewire:utility.spinner/>
     </span>
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <livewire:noticias.carousel/>
+
+            <div class="xl:visible lg:visible md:visible invisible  m-4">
+                <label for="table-search" class="sr-only">Buscar</label>
+                <div class="relative mt-1 flex-1 pr-3">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <x-codicon-search class="h-5 w-5 text-green-800" />
+                    </div>
+                    <input type="text"  class="bg-gray-50 border border-green-600 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full pl-10 p-2.5"
+                           placeholder="Buscar Noticias"  wire:model.live.debounce.300ms="searching">
+                </div>
+            </div>
+
         <div class="grid-container">
             <form class="rounded overflow-hidden shadow-lg px-6 py-6 mt-4 bg-white">
                 <div class="space-y-12">
@@ -37,18 +47,14 @@
                             @endcan
                         </div>
 
-                        <div
-                            class="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">
+                        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">
                             @foreach($noticias as $noticia)
-                                <div wire:key="{{ $noticia->id }}"
-                                     class="col-span-1 flex flex-col overflow-hidden shadow-lg">
-
+                                <div wire:key="{{ $noticia->id }}" class="col-span-1 flex flex-col overflow-hidden shadow-lg">
                                     @if($noticia->getFirstMediaUrl('noticias'))
                                         <img class="w-full h-48 object-cover"
                                              src="{{$noticia->getFirstMediaUrl('noticias')}}"
                                              alt="{{$noticia->title}}">
                                     @endif
-
                                     <a href="{{route('noticias.ver',$noticia->id)}}"
                                        class="px-6 py-4 flex flex-wrap mt-auto hover:text-gray-400">
                                         <div class="font-bold text-md mb-2 uppercase">{{$noticia->title}}</div>
@@ -57,18 +63,14 @@
                                                 {{  Str::limit(strip_tags($noticia->body),150,'...') }}
                                             </p>
                                         </div>
-
                                     </a>
 
                                     <div class="px-6 pt-4 flex flex-wrap mt-auto mb-2">
-
                                         <div class="text-sm text-left">
                                             <hr class="mb-2">
                                             <p class="text-gray-900 leading-none text-xs not-italic font-normal uppercase">
-                                                Escrito
-                                                por: {{$noticia->user->fullName}}</p>
-                                            <span
-                                                class="inline-block text-xs leading-none text-gray-700 not-italic font-normal">Fecha: {{$noticia->created_at}}</span>
+                                                Escrito por: {{$noticia->user->fullName}}</p>
+                                            <span class="inline-block text-xs leading-none text-gray-700 not-italic font-normal">Fecha: {{ \Carbon\Carbon::parse($noticia->created_at)->format('d/m/Y')}}</span>
                                         </div>
                                     </div>
 

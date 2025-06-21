@@ -13,10 +13,9 @@ class Index extends Component
 {
     use WithPagination, LivewireAlert;
 
-    public string $search = '';
-    protected array $queryString = ['search'];
+    public string $searching = '';
 
-    public function updatingSearch(): void
+    public function updatingSearching(): void
     {
         $this->resetPage();
     }
@@ -46,18 +45,10 @@ class Index extends Component
         }
     }
 
-
-    #[On('render-search')]
-    public function buscador($search): void
-    {
-        $this->search = $search;
-    }
-
-
     public function render(): Renderable
     {
         can('noticias read');
-        $noticias = Noticia::search($this->search)->orderBy('created_at', 'DESC')->paginate(9);
+        $noticias = Noticia::search($this->searching)->orderBy('created_at', 'DESC')->paginate(9)->withQueryString();
         return view('livewire.noticias.index', compact('noticias'));
     }
 }
